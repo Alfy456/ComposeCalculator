@@ -1,4 +1,4 @@
-package com.example.samplegitexperiment
+package com.example.composeCalculator
 
 import org.junit.Test
 

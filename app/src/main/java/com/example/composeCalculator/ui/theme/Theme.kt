@@ -1,4 +1,4 @@
-package com.example.samplegitexperiment.ui.theme
+package com.example.composeCalculator.ui.theme
 
 import android.app.Activity
 import android.os.Build
