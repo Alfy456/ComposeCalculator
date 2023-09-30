@@ -18,7 +18,9 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.composeCalculator.ui.theme.LightGrey
+import com.example.composeCalculator.ui.theme.numbers
+import com.example.composeCalculator.ui.theme.others
+import com.example.composeCalculator.ui.theme.symbols
 
 @Composable
 fun Calculator(
@@ -33,7 +35,7 @@ fun Calculator(
             .align(Alignment.BottomCenter),
         verticalArrangement = Arrangement.spacedBy(buttonSpacing)) {
             Text(
-                text = state.number1 + (state.operation?: "") + state.number2,
+                text = state.number1 + (state.operation?.symbol?: "") + state.number2,
                 textAlign = TextAlign.End,
                 modifier = Modifier
                     .fillMaxWidth()
@@ -48,7 +50,7 @@ fun Calculator(
                 CalculatorButton(
                     symbol = "AC",
                     modifier = Modifier
-                        .background(LightGrey)
+                        .background(others)
                         .aspectRatio(2f)
                         .weight(2f),
                     onClick =  {
@@ -56,19 +58,19 @@ fun Calculator(
                     }
                 )
                 CalculatorButton(
-                    symbol = "Del",
+                    symbol = "%",
                     modifier = Modifier
-                        .background(LightGrey)
+                        .background(others)
                         .aspectRatio(1f)
                         .weight(1f),
                     onClick =  {
-                        onAction(CalculatorActions.Delete)
+                        onAction(CalculatorActions.Operation(CalculatorOperation.Percentage))
                     }
                 )
                 CalculatorButton(
                     symbol = "/",
                     modifier = Modifier
-                        .background(LightGrey)
+                        .background(symbols)
                         .aspectRatio(1f)
                         .weight(1f),
                     onClick =  {
@@ -83,7 +85,7 @@ fun Calculator(
                 CalculatorButton(
                     symbol = "7",
                     modifier = Modifier
-                        .background(Color.DarkGray)
+                        .background(numbers)
                         .aspectRatio(1f)
                         .weight(1f),
                     onClick =  {
@@ -93,7 +95,7 @@ fun Calculator(
                 CalculatorButton(
                     symbol = "8",
                     modifier = Modifier
-                        .background(Color.DarkGray)
+                        .background(numbers)
                         .aspectRatio(1f)
                         .weight(1f),
                     onClick =  {
@@ -103,7 +105,7 @@ fun Calculator(
                 CalculatorButton(
                     symbol = "9",
                     modifier = Modifier
-                        .background(Color.DarkGray)
+                        .background(numbers)
                         .aspectRatio(1f)
                         .weight(1f),
                     onClick =  {
@@ -113,7 +115,7 @@ fun Calculator(
                 CalculatorButton(
                     symbol = "*",
                     modifier = Modifier
-                        .background(Color.DarkGray)
+                        .background(symbols)
                         .aspectRatio(1f)
                         .weight(1f),
                     onClick =  {
@@ -127,7 +129,7 @@ fun Calculator(
                 CalculatorButton(
                     symbol = "4",
                     modifier = Modifier
-                        .background(LightGrey)
+                        .background(numbers)
                         .aspectRatio(1f)
                         .weight(1f),
                     onClick =  {
@@ -137,7 +139,7 @@ fun Calculator(
                 CalculatorButton(
                     symbol = "5",
                     modifier = Modifier
-                        .background(LightGrey)
+                        .background(numbers)
                         .aspectRatio(1f)
                         .weight(1f),
                     onClick =  {
@@ -147,7 +149,7 @@ fun Calculator(
                 CalculatorButton(
                     symbol = "6",
                     modifier = Modifier
-                        .background(LightGrey)
+                        .background(numbers)
                         .aspectRatio(1f)
                         .weight(1f),
                     onClick =  {
@@ -157,7 +159,7 @@ fun Calculator(
                 CalculatorButton(
                     symbol = "-",
                     modifier = Modifier
-                        .background(LightGrey)
+                        .background(symbols)
                         .aspectRatio(1f)
                         .weight(1f),
                     onClick =  {
@@ -171,7 +173,7 @@ fun Calculator(
                 CalculatorButton(
                     symbol = "1",
                     modifier = Modifier
-                        .background(LightGrey)
+                        .background(numbers)
                         .aspectRatio(1f)
                         .weight(1f),
                     onClick =  {
@@ -181,7 +183,7 @@ fun Calculator(
                 CalculatorButton(
                     symbol = "2",
                     modifier = Modifier
-                        .background(LightGrey)
+                        .background(numbers)
                         .aspectRatio(1f)
                         .weight(1f),
                     onClick =  {
@@ -191,7 +193,7 @@ fun Calculator(
                 CalculatorButton(
                     symbol = "3",
                     modifier = Modifier
-                        .background(LightGrey)
+                        .background(numbers)
                         .aspectRatio(1f)
                         .weight(1f),
                     onClick =  {
@@ -201,7 +203,7 @@ fun Calculator(
                 CalculatorButton(
                     symbol = "+",
                     modifier = Modifier
-                        .background(LightGrey)
+                        .background(symbols)
                         .aspectRatio(1f)
                         .weight(1f),
                     onClick =  {
@@ -215,9 +217,9 @@ fun Calculator(
                 CalculatorButton(
                     symbol = "0",
                     modifier = Modifier
-                        .background(LightGrey)
-                        .aspectRatio(2f)
-                        .weight(0f),
+                        .background(numbers)
+                        .aspectRatio(1f)
+                        .weight(1f),
                     onClick =  {
                         onAction(CalculatorActions.Number(0))
                     }
@@ -225,7 +227,7 @@ fun Calculator(
                 CalculatorButton(
                     symbol = ".",
                     modifier = Modifier
-                        .background(LightGrey)
+                        .background(numbers)
                         .aspectRatio(1f)
                         .weight(1f),
                     onClick =  {
@@ -233,9 +235,19 @@ fun Calculator(
                     }
                 )
                 CalculatorButton(
+                    symbol = "del",
+                    modifier = Modifier
+                        .background(numbers)
+                        .aspectRatio(1f)
+                        .weight(1f),
+                    onClick =  {
+                        onAction(CalculatorActions.Delete)
+                    }
+                )
+                CalculatorButton(
                     symbol = "=",
                     modifier = Modifier
-                        .background(LightGrey)
+                        .background(symbols)
                         .aspectRatio(1f)
                         .weight(1f),
                     onClick =  {
