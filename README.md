@@ -1,6 +1,7 @@
-# Calculator App with Jetpack Compose
+# ComposeUnitConverter with Jetpack Compose
 
-A simple calculator app built with Jetpack Compose for Android
+
+A simple Unit Converter app built with Jetpack Compose for Android
 
 ## Features
 
@@ -33,7 +34,5 @@ The project is structured into separate classes to maintain code organization an
 
 - Android Studio with Compose support
 - Android emulator or a physical Android device
-
-
 
 
